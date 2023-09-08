@@ -1,16 +1,16 @@
 package model;
 
 public class User {
-    private int user_id;
+    private Integer user_id;
     private String username;
     private String password;
-    private String sign_data;
+    private String signup_date;
 
-    public int getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 
@@ -30,11 +30,31 @@ public class User {
         this.password = password;
     }
 
-    public String getSign_data() {
-        return sign_data;
+    public String getSignup_date() {
+        return signup_date;
     }
 
-    public void setSign_data(String sign_data) {
-        this.sign_data = sign_data;
+    public void setSignup_date(String signup_date) {
+        this.signup_date = signup_date;
+    }
+    public User(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id=" + user_id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", signup_date='" + signup_date + '\'' +
+                '}';
+    }
+
+    public User(Integer user_id, String username, String password, String sign_data) {
+        this.user_id = user_id;
+        this.username = username;
+        this.password = password;
+        this.signup_date = sign_data;
     }
 }
