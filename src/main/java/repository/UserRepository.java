@@ -1,12 +1,8 @@
 package repository;
 
-import connection.JdbcConnection;
 import model.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserRepository {
     private Connection connection;
@@ -45,6 +41,20 @@ public class UserRepository {
         PreparedStatement statement =connection.prepareStatement(add);
         int result =statement.executeUpdate();
         return result;
+    }
+    public User loadAll() throws SQLException{
+        String add="SELECT * FROM users" ;
+        PreparedStatement statement =connection.prepareStatement(add);
+        ResultSet result =statement.executeQuery();
+
+        while (result.next()){
+            return new User(result.getInt(1),
+                    result.getString(2),
+                    result.getString(3),
+                    result.getString(4)) ;
+        }
+        return null;
+
     }
 
 
