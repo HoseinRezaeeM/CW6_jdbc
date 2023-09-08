@@ -60,6 +60,23 @@ public class UserRepository {
         }
         return u;
     }
+    public User[] saveAll(User[] user) throws SQLException{
+        String add="INSERT INTO users(username, password, signup_date) values (?,?,?)";
+        PreparedStatement statement=connection.prepareStatement(add);
+
+        for (User users : user) {
+
+            statement.setString(1, users.getUsername());
+            statement.setString(2, users.getPassword());
+            statement.setString(3, users.getSignup_date());
+            statement.addBatch();
+
+
+        }
+        statement.executeBatch();
+
+        return user;
+    }
 
 
 }
