@@ -18,12 +18,10 @@ public class JdbcConnection {
         usee.save(user);
         usee.save(user1);
         usee.Update(user1);
+        // usee.Delete(user1);
 
-
-
-
-
-
+        User user3=usee.loadAll();
+        System.out.println(user3);
 
 
 
