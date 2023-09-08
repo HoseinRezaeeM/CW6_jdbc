@@ -40,6 +40,12 @@ public class UserRepository {
         int result= statement.executeUpdate();
         return result;
     }
+    public int Delete(User user) throws SQLException{
+        String add= " DELETE FROM users WHERE username='samyar'" ;
+        PreparedStatement statement =connection.prepareStatement(add);
+        int result =statement.executeUpdate();
+        return result;
+    }
 
 
 
